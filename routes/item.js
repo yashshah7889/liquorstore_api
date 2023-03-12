@@ -7,7 +7,17 @@ items.use(cors());
 
 items.post('/items',(req,res) =>{
 
-    
+    let pname = req.body.pname;
+    let brand = req.body.brand;
+
+    if
+    Products.findAll({
+        where: { brand : brand }
+    }).then(async(product)=>{
+
+    }
+
+    )
 
 });
 
