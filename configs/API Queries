@@ -1,0 +1,17 @@
+SERVER & DB ACCESS :
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+CREATE TABLE Product (
+pid INTEGER,
+pname VARCHAR(50),
+alcPercent DECIMAL(3,1),
+size INTEGER,
+category VARCHAR(50),
+subCategory VARCHAR(50),
+brand VARCHAR(50),
+price INTEGER,
+pic BLOB,
+PRIMARY KEY (pid)
+);

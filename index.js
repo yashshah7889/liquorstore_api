@@ -1,7 +1,12 @@
-
+const itemRouter =require('./routes/item');
 //setting up express(most popular server technology)
+//body parser is used to process data sent in an HTTP request body.
 const express = require('express')
+const bodyParser = require('body-parser');
+
 const app = express()
+
+app.use(bodyParser.urlencoded({ extended:false}))
 
 //defining the port. process.env.PORT will povide dynamic port when added to heroku,aws or etc otherwise gateway error 500
 const port=  process.env.PORT || 4001
@@ -11,17 +16,5 @@ app.listen(port, () => {
     console.log(`web server listening on port ${port}`)
 })
 
-const alcohol = [
-    { name: "budwiser", type:"beer" },
-    {name:"smirnoff", type:"vodka"}
-]
+app.use("/items",itemRouter);
 
-//for now as we dont have any pages build we will use app.get then afterwards to route or for functioning we will use app.use("/data",changephoto);
-app.get("/",(req,res)=>{
-    res.json(alcohol)
-})
-
-//params is an object of the req object that contains route parameters
-app.get("/alcohol/:id",(req,res)=>{
-    res.json(alcohol[parseInt(req.params.id) - 1])
-})
